@@ -98,14 +98,17 @@ const Tasks = (props) => {
                 <Icon name={'receipt'} size={25} color={Colors.secondary} style={{opacity:0.9}}/>
                 <Text style={{color:'black',opacity:0.8, fontSize:17, paddingLeft:10, flex:1}}>{item.task}</Text>
                 <View style={{flexDirection:'row', padding:6}}>
-                <Switch       
+                {/* <Switch       
                     trackColor={{ false: Colors.lightGray, true: Colors.lightGray }}
                     thumbColor={item.toggle==true?Colors.primaryColor: 'gray'}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={()=>_update_db(index)}
                     value={item.toggle}
-                />
-                <RadioButton selected={item.radioButton}/>
+                /> */}
+                <Icon 
+                onPress={()=> _update_db(index)}
+                name={item.toggle?'square-outline':'ios-checkbox-outline'} size={25} color={Colors.secondary} style={{opacity:0.9}}/>
+                {/* <RadioButton selected={item.radioButton}/> */}
                 </View>
                 
 

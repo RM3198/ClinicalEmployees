@@ -19,8 +19,8 @@ const Login = (props) => {
     const [logintab, setlogintab] = useState(true)
     const [loader, setloader] = useState(false)
 
-    const [loginEmail, setLoginEmail] = useState(null) //SIGNIN
-    const [loginPassword, setloginPassword] = useState(null)
+    const [employeeId, setEmployeeId] = useState(null) //employeeID
+    const [employeeName, setLoginEmail] = useState(null) // EmployeeName
     const [showPassword, setShowPassword] = useState(true)
 
     const [name, setname] = useState(null) //SIGNUP 
@@ -55,16 +55,14 @@ const Login = (props) => {
     }
 
     const _login = () => {
-        if(loginEmail=='Rafay'||loginEmail=='Rufi'||loginEmail=='Tabia'){
-            if(loginPassword=='admin'){
-                _navigate_to(loginEmail)
-            }
-            else{
-                ToastAndroid.show('password incorrect', ToastAndroid.SHORT)
-            } 
+        if(employeeId == '' || employeeId == null){
+            ToastAndroid.show('Enter employee\'s Id', ToastAndroid.SHORT)
+        }
+        else if (employeeName == '' || employeeName == null){
+            ToastAndroid.show('Enter Employee\'s name', ToastAndroid.SHORT)
         }
         else{
-            ToastAndroid.show('Employee name or password incorrect', ToastAndroid.SHORT)
+            _navigate_to(employeeName)
         }
     }
 
@@ -74,13 +72,27 @@ const Login = (props) => {
         return(
             <View>
             <MyInput 
+            placeholder={'Employee\'s Id'}
+            value = {employeeId}
+            onChangeText={(text)=> setEmployeeId(text)}
+            icon={"at"}
+            iconColor={Colors.primaryColor}
+            />
+            <MyInput 
             placeholder={'Employee\'s name'}
-            value = {loginEmail}
-            onChangeText={(email)=> setLoginEmail(email)}
+            value = {employeeName}
+            onChangeText={(text)=> setLoginEmail(text)}
             icon={"person"}
             iconColor={Colors.primaryColor}
             />
             <MyInput 
+            placeholder={'Employee\'s designation'}
+            // value = {employeeName}
+            onChangeText={(text)=> {}}
+            icon={"briefcase-outline"}
+            iconColor={Colors.primaryColor}
+            />
+            {/* <MyInput 
             value = {loginPassword}
             placeholder={'Password'}
             fontType='fontAwesome'
@@ -91,7 +103,7 @@ const Login = (props) => {
             onChangeText={(pass)=> setloginPassword(pass)}
             icon={"lock"}
             iconColor={Colors.primaryColor}
-            />
+            /> */}
 
             <MyButton
             onPress={()=>_login()}

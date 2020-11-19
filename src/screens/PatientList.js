@@ -123,7 +123,7 @@ const PatientList = (props) => {
                 <Icon name={'person-circle-outline'} size={60} color={Colors.primaryColor} style={{opacity:0.8, padding:5, paddingTop:10}}/>
                 <View>
                     <Text style={{fontSize:26, padding:5, paddingBottom:0, opacity:0.7, fontWeight:'700'}}>Employee's Name</Text>
-                    <Text style={{fontSize:20, paddingLeft:8, opacity:0.7, color:Colors.secondary}}>{props.name}</Text>
+                    <Text style={{fontSize:20, paddingLeft:8, opacity:0.7, color:Colors.secondary}}>Hi {props.name}</Text>
                     {/* <MyButton text={'add data'} onPress={()=>_add_data()}/> */}
                 </View>
             </View>
